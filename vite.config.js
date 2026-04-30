@@ -28,12 +28,44 @@ function readingTime(content) {
 	return Math.max(1, Math.ceil(words / 500));
 }
 
+function slugFromHeading(text, usedSlugs) {
+	const baseSlug = text
+		.toLowerCase()
+		.trim()
+		.replace(/[^\p{L}\p{N}\s-]/gu, '')
+		.replace(/\s+/g, '-')
+		.replace(/-+/g, '-')
+		.replace(/^-|-$/g, '') || 'section';
+
+	const count = usedSlugs.get(baseSlug) || 0;
+	usedSlugs.set(baseSlug, count + 1);
+
+	return count === 0 ? baseSlug : `${baseSlug}-${count + 1}`;
+}
+
 function blogPostsPlugin() {
 	const markdown = new MarkdownIt({
 		html: false,
 		linkify: true,
 		typographer: true,
 	});
+
+	markdown.renderer.rules.heading_open = (tokens, index, options, env, self) => {
+		const token = tokens[index];
+		const level = Number(token.tag.slice(1));
+
+		if (level >= 2 && level <= 3) {
+			const title = tokens[index + 1]?.content || '';
+			const usedSlugs = env.usedSlugs || new Map();
+			env.usedSlugs = usedSlugs;
+
+			const id = slugFromHeading(title, usedSlugs);
+			token.attrSet('id', id);
+			env.headings?.push({ depth: level, text: title, id });
+		}
+
+		return self.renderToken(tokens, index, options);
+	};
 
 	return {
 		name: 'blog-posts',
@@ -80,15 +112,26 @@ function blogPostsPlugin() {
 					const raw = fs.readFileSync(path.join(postsDir, file), 'utf-8');
 					const { data, content } = matter(raw);
 					const slug = data.slug || slugFromFilename(file);
+					const renderEnv = { headings: [], usedSlugs: new Map() };
+					const html = markdown.render(content, renderEnv);
 
 					return {
 						slug,
 						title: data.title || slug,
 						date: data.date || '',
+						category: data.category || '未分类',
 						excerpt: data.excerpt || '',
 						tags: normalizeTags(data.tags),
 						readingMinutes: readingTime(content),
-						html: markdown.render(content),
+						searchText: [
+							data.title || slug,
+							data.category || '未分类',
+							data.excerpt || '',
+							normalizeTags(data.tags).join(' '),
+							content,
+						].join(' '),
+						headings: renderEnv.headings,
+						html,
 					};
 				})
 				.sort((a, b) => new Date(b.date) - new Date(a.date));

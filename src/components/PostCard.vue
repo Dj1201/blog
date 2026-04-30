@@ -10,7 +10,10 @@ defineProps({
 <template>
   <article class="post-card">
     <RouterLink class="post-card-link" :to="`/posts/${post.slug}`">
-      <time :datetime="post.date">{{ post.date }}</time>
+      <div class="post-card-topline">
+        <time :datetime="post.date">{{ post.date }}</time>
+        <span class="category-pill">{{ post.category }}</span>
+      </div>
       <h2>{{ post.title }}</h2>
       <p>{{ post.excerpt }}</p>
       <div class="post-meta">

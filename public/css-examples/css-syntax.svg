@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420" role="img" aria-labelledby="title desc">
+  <title id="title">CSS 语法结构示意图</title>
+  <desc id="desc">展示选择器、属性和值组成一条 CSS 规则</desc>
+  <rect width="920" height="420" rx="18" fill="#f8fafc"/>
+  <rect x="52" y="48" width="816" height="324" rx="16" fill="#ffffff" stroke="#dbe3ee"/>
+  <text x="84" y="100" fill="#64748b" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">一条 CSS 规则由选择器、属性和值组成</text>
+  <rect x="84" y="132" width="752" height="172" rx="12" fill="#111827"/>
+  <text x="126" y="190" fill="#93c5fd" font-family="Consolas, monospace" font-size="30">.card</text>
+  <text x="226" y="190" fill="#e5e7eb" font-family="Consolas, monospace" font-size="30"> {</text>
+  <text x="150" y="238" fill="#fbbf24" font-family="Consolas, monospace" font-size="30">color</text>
+  <text x="245" y="238" fill="#e5e7eb" font-family="Consolas, monospace" font-size="30">: </text>
+  <text x="278" y="238" fill="#86efac" font-family="Consolas, monospace" font-size="30">blue</text>
+  <text x="348" y="238" fill="#e5e7eb" font-family="Consolas, monospace" font-size="30">;</text>
+  <text x="126" y="286" fill="#e5e7eb" font-family="Consolas, monospace" font-size="30">}</text>
+  <path d="M154 198v50" stroke="#60a5fa" stroke-width="3"/>
+  <path d="M214 248v54" stroke="#f59e0b" stroke-width="3"/>
+  <path d="M312 248v54" stroke="#22c55e" stroke-width="3"/>
+  <rect x="102" y="318" width="110" height="34" rx="8" fill="#dbeafe"/>
+  <text x="126" y="341" fill="#1d4ed8" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">选择器</text>
+  <rect x="188" y="318" width="110" height="34" rx="8" fill="#fef3c7"/>
+  <text x="221" y="341" fill="#92400e" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">属性</text>
+  <rect x="292" y="318" width="94" height="34" rx="8" fill="#dcfce7"/>
+  <text x="322" y="341" fill="#166534" font-family="Segoe UI, Arial, sans-serif" font-size="17" font-weight="700">值</text>
+</svg>

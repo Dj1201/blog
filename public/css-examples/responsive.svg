@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="520" viewBox="0 0 920 520" role="img" aria-labelledby="title desc">
+  <title id="title">响应式布局效果示意图</title>
+  <desc id="desc">展示桌面端三列布局在移动端变成单列布局</desc>
+  <rect width="920" height="520" rx="18" fill="#f8fafc"/>
+  <text x="70" y="72" fill="#0f172a" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="800">响应式：大屏多列，小屏单列</text>
+  <rect x="72" y="112" width="500" height="290" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="102" y="152" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="800">Desktop</text>
+  <rect x="104" y="180" width="130" height="160" rx="12" fill="#dbeafe" stroke="#2563eb"/>
+  <rect x="260" y="180" width="130" height="160" rx="12" fill="#dcfce7" stroke="#16a34a"/>
+  <rect x="416" y="180" width="130" height="160" rx="12" fill="#fef3c7" stroke="#d97706"/>
+  <rect x="650" y="112" width="180" height="290" rx="28" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="700" y="152" fill="#475569" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="800">Mobile</text>
+  <rect x="680" y="180" width="120" height="54" rx="10" fill="#dbeafe" stroke="#2563eb"/>
+  <rect x="680" y="252" width="120" height="54" rx="10" fill="#dcfce7" stroke="#16a34a"/>
+  <rect x="680" y="324" width="120" height="54" rx="10" fill="#fef3c7" stroke="#d97706"/>
+  <text x="96" y="462" fill="#475569" font-family="Consolas, monospace" font-size="20">@media (max-width: 768px) { .grid { grid-template-columns: 1fr; } }</text>
+</svg>
